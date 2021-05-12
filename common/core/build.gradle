@@ -1,3 +1,11 @@
-dependencies {
+jar {
+    baseName("eboot-common-core")
+}
 
+ext {
+
+}
+dependencies {
+    api("org.apache.commons:commons-lang3:${commonsLang3Version}")
+    implementation("com.fasterxml.jackson.core:jackson-annotations")
 }
