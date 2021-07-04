@@ -20,25 +20,6 @@ public interface SysConstants {
      */
     String DEFAULT_PASSWD = "12345678";
 
-    /* 性别 start */
-    /**
-     * 性别 男性
-     */
-    int SEX_MAN = 1;
-    /**
-     * 性别 女性
-     */
-    int SEX_FEMALE = 2;
-    /**
-     * 性别 其他
-     */
-    int SEX_OTHER = 3;
-    /**
-     * 性别 保密
-     */
-    int SEX_SECURITY = 4;
-    /* 性别 end */
-
 
     /* 状态 start */
     /**

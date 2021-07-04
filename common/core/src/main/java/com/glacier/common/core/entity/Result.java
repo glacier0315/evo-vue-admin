@@ -1,8 +1,5 @@
 package com.glacier.common.core.entity;
 
-import com.glacier.common.core.exception.ErrorType;
-import com.glacier.common.core.exception.SystemErrorType;
-
 import java.io.Serializable;
 
 /**
@@ -80,38 +77,6 @@ public class Result<T> implements Serializable {
 
     public void setData(T data) {
         this.data = data;
-    }
-
-    /**
-     * 返回默认 "500" 错误
-     *
-     * @param <T> 类型
-     * @return 响应
-     */
-    public static <T> Result<T> error() {
-        return error(SystemErrorType.BUSINESS_ERROR);
-    }
-
-    /**
-     * 返回默认 "-1" 错误
-     *
-     * @param msg 错误信息
-     * @param <T> 用户id
-     * @return 响应
-     */
-    public static <T> Result<T> error(String msg) {
-        return error(SystemErrorType.BUSINESS_ERROR.getCode(), msg);
-    }
-
-    /**
-     * 返回指定编码错误
-     *
-     * @param errorType 错误编码
-     * @param <T> 类型
-     * @return 响应
-     */
-    public static <T> Result<T> error(ErrorType errorType) {
-        return error(errorType.getCode(), errorType.getMsg());
     }
 
     /**

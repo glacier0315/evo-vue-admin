@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 基类
@@ -25,7 +24,7 @@ public abstract class AbstractBaseEntity implements Serializable {
      * 自定义SQL（SQL标识，SQL内容）
      */
     @JsonIgnore
-    private Map<String, String> sqlMap;
+    private final Map<String, String> sqlMap = new HashMap<>(4);
 
     /**
      * 是否是新记录（默认：false），调用setIsNewRecord()设置新记录，使用自定义ID。
@@ -52,9 +51,7 @@ public abstract class AbstractBaseEntity implements Serializable {
      * @return 返回sqlMap
      */
     public Map<String, String> getSqlMap() {
-        this.sqlMap = Optional.ofNullable(this.sqlMap)
-                .orElseGet(ConcurrentHashMap::new);
-        return this.sqlMap;
+        return sqlMap;
     }
 
     /**
@@ -79,11 +76,11 @@ public abstract class AbstractBaseEntity implements Serializable {
     /**
      * 插入之前执行方法，子类实现
      */
-    public abstract void preInsert();
+    public void preInsert() {}
 
     /**
      * 更新之前执行方法，子类实现
      */
-    public abstract void preUpdate();
+    public void preUpdate() {}
 
 }
