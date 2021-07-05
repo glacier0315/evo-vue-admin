@@ -1,4 +1,4 @@
-package com.glacier.common.core.entity.dto.vo;
+package com.glacier.common.core.entity.dto;
 
 
 import java.io.Serializable;
@@ -10,7 +10,7 @@ import java.util.List;
  * @version 1.0
  * date 2020-08-08 11:07
  */
-public class RoleDetailsDto implements Serializable {
+public class RoleDetail implements Serializable {
     private static final long serialVersionUID = 2730122991817147481L;
     /**
      * 主键

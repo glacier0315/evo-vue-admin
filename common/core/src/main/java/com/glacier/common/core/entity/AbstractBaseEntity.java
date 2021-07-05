@@ -76,11 +76,11 @@ public abstract class AbstractBaseEntity implements Serializable {
     /**
      * 插入之前执行方法，子类实现
      */
-    public void preInsert() {}
+    public abstract void preInsert();
 
     /**
      * 更新之前执行方法，子类实现
      */
-    public void preUpdate() {}
+    public abstract void preUpdate();
 
 }

@@ -1,10 +1,4 @@
 spring:
   profiles:
     active: dev
-  thymeleaf:
-    enabled: true
-    cache: false
-    encoding: UTF-8
-    prefix: classpath:/templates/
-    suffix: .html
 

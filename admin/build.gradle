@@ -7,8 +7,6 @@ dependencies {
     implementation project(":common:core")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
-    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:${thymeleafLayouVersion}")
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 

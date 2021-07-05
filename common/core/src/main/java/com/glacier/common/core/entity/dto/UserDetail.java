@@ -1,4 +1,4 @@
-package com.glacier.common.core.entity.dto.vo;
+package com.glacier.common.core.entity.dto;
 
 
 import java.io.Serializable;
@@ -12,7 +12,7 @@ import java.util.List;
  * @version 1.0
  * date 2020-05-24 10:22
  */
-public class UserDetailsDto implements Serializable {
+public class UserDetail implements Serializable {
 
     private static final long serialVersionUID = -4433713600535288510L;
     /**
@@ -67,7 +67,7 @@ public class UserDetailsDto implements Serializable {
     /**
      * 角色集合
      */
-    private List<RoleDetailsDto> roleDetailDtos;
+    private List<RoleDetail> roleDetailDtos;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -169,11 +169,11 @@ public class UserDetailsDto implements Serializable {
         this.deptName = deptName;
     }
 
-    public List<RoleDetailsDto> getRoleDetailDtos() {
+    public List<RoleDetail> getRoleDetailDtos() {
         return this.roleDetailDtos;
     }
 
-    public void setRoleDetailDtos(List<RoleDetailsDto> roleDetailDtos) {
+    public void setRoleDetailDtos(List<RoleDetail> roleDetailDtos) {
         this.roleDetailDtos = roleDetailDtos;
     }
 
