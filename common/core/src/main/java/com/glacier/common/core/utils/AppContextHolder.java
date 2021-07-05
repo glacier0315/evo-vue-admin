@@ -82,7 +82,6 @@ public class AppContextHolder {
      * 清空上下文
      */
     public void clear() {
-        Optional.of(this.threadLocal)
-                .ifPresent(ThreadLocal::remove);
+        this.threadLocal.remove();
     }
 }
