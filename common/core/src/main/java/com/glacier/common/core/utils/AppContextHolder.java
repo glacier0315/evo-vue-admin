@@ -17,10 +17,9 @@ public class AppContextHolder {
     /**
      * 线程上下文
      */
-    private final ThreadLocal<Map<String, Object>> threadLocal;
+    private final ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<>();
 
     private AppContextHolder() {
-        this.threadLocal = new ThreadLocal<>();
     }
 
     /**

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glacier.modules.sys.mapper.LoginLogMapper">
+    <resultMap id="BaseResultMap" type="com.glacier.modules.sys.entity.LoginLog">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="username"/>
+        <result column="ip_addr" jdbcType="VARCHAR" property="ipAddr"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="user_agent" jdbcType="VARCHAR" property="userAgent"/>
+        <result column="browser" jdbcType="VARCHAR" property="browser"/>
+        <result column="os" jdbcType="VARCHAR" property="os"/>
+        <result column="login_time" jdbcType="TIMESTAMP" property="loginTime"/>
+    </resultMap>
+
+    <sql id="base_columns">
+        a.id, a.user_name, a.ip_addr, a.status, a.user_agent, a.browser, a.os, a.login_time
+    </sql>
+
+    <sql id="join_columns">
+    </sql>
+
+    <sql id="joins">
+    </sql>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from sys_login_log
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.glacier.modules.sys.entity.LoginLog">
+        insert into sys_login_log (id, user_name, ip_addr,
+          status, user_agent, browser, os, login_time)
+        values (#{id}, #{userName}, #{ipAddr},
+          #{status}, #{userAgent}, #{browser}, #{os}, #{loginTime})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.glacier.modules.sys.entity.LoginLog">
+        update sys_login_log
+        set user_name = #{userName},
+          ip_addr = #{ipAddr},
+          status = #{status},
+          user_agent = #{userAgent},
+          browser = #{browser},
+          os = #{os},
+          login_time = #{loginTime}
+        where id = #{id}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+            <include refid="base_columns"/>
+        from sys_login_log a
+        where a.id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+            <include refid="base_columns"/>
+        from sys_login_log a
+    </select>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        select
+            <include refid="base_columns"/>
+        from sys_login_log a
+    </select>
+</mapper>
