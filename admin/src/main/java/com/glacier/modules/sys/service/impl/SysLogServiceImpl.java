@@ -6,7 +6,7 @@ import com.glacier.common.core.entity.page.PageRequest;
 import com.glacier.common.core.entity.page.PageResponse;
 import com.glacier.common.core.utils.IdGen;
 import com.glacier.modules.sys.entity.SysLog;
-import com.glacier.modules.sys.handler.GlobalExceptionHandler;
+import com.glacier.modules.sys.handler.SysExceptionHandler;
 import com.glacier.modules.sys.mapper.SysLogMapper;
 import com.glacier.modules.sys.service.SysLogService;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +27,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Service("sysLogService")
 public class SysLogServiceImpl implements SysLogService {
-    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(SysExceptionHandler.class);
     @Autowired
     private SysLogMapper sysLogMapper;
 

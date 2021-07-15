@@ -15,12 +15,24 @@ import java.util.stream.Collectors;
  * @version 1.0
  * date 2020-05-24 10:22
  */
-public class UserDetailsVo implements UserDetails, CredentialsContainer {
+public class CustomUser implements UserDetails, CredentialsContainer {
 
     private static final long serialVersionUID = 7919080375772006733L;
+    /**
+     * 用户id
+     */
     private String userId;
+    /**
+     * 用户名
+     */
     private String username;
+    /**
+     * 密码
+     */
     private String password;
+    /**
+     * 角色
+     */
     private List<String> roles;
     private boolean accountNonExpired;
     private boolean accountNonLocked;
@@ -58,7 +70,8 @@ public class UserDetailsVo implements UserDetails, CredentialsContainer {
     }
 
     public List<String> getRoles() {
-        return this.roles;
+        return Optional.ofNullable(this.roles)
+                .orElseGet(() -> this.roles = new ArrayList<>());
     }
 
     public void setRoles(List<String> roles) {
@@ -109,8 +122,7 @@ public class UserDetailsVo implements UserDetails, CredentialsContainer {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Optional.ofNullable(this.roles)
-                .orElseGet(ArrayList::new)
+        return this.getRoles()
                 .stream()
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toSet());
@@ -124,7 +136,7 @@ public class UserDetailsVo implements UserDetails, CredentialsContainer {
         if (o == null || this.getClass() != o.getClass()) {
             return false;
         }
-        UserDetailsVo that = (UserDetailsVo) o;
+        CustomUser that = (CustomUser) o;
         return this.userId.equals(that.userId) &&
                 this.username.equals(that.username);
     }
@@ -133,10 +145,10 @@ public class UserDetailsVo implements UserDetails, CredentialsContainer {
     public int hashCode() {
         return Objects.hash(this.userId, this.username);
     }
-
+    
     @Override
     public String toString() {
-        return "UserDetailsVo{" +
+        return "CustomUserDetails{" +
                 "userId='" + this.userId + '\'' +
                 ", username='" + this.username + '\'' +
                 ", password='" + this.password + '\'' +

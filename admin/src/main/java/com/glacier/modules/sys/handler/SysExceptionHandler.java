@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * date 2020-05-03 09:54
  */
 @RestControllerAdvice
-public class GlobalExceptionHandler {
-    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+public class SysExceptionHandler {
+    private static final Logger log = LoggerFactory.getLogger(SysExceptionHandler.class);
     /**
      * 处理 认证异常
      *
-     * @param baseException 异常
+     * @param exception 异常
      * @return 异常响应
      */
     @ExceptionHandler(value = Exception.class)
-    public Result<String> handler(Exception baseException) {
-        log.error("异常：", baseException);
-        return ResultBuildFactory.error(baseException.getMessage());
+    public Result<String> handler(Exception exception) {
+        log.error("异常：", exception);
+        return ResultBuildFactory.error(exception.getMessage());
     }
 }

@@ -12,7 +12,7 @@ import com.glacier.modules.sys.entity.RoleMenu;
 import com.glacier.modules.sys.entity.dto.role.RoleForm;
 import com.glacier.modules.sys.entity.dto.role.RoleQuery;
 import com.glacier.modules.sys.entity.dto.role.RoleVo;
-import com.glacier.modules.sys.handler.GlobalExceptionHandler;
+import com.glacier.modules.sys.handler.SysExceptionHandler;
 import com.glacier.modules.sys.mapper.RoleDeptMapper;
 import com.glacier.modules.sys.mapper.RoleMapper;
 import com.glacier.modules.sys.mapper.RoleMenuMapper;
@@ -37,7 +37,7 @@ import java.util.List;
 @Transactional(readOnly = true)
 @Service("roleService")
 public class RoleServiceImpl implements RoleService {
-    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(SysExceptionHandler.class);
     @Autowired
     private RoleConvert roleConvert;
     @Autowired

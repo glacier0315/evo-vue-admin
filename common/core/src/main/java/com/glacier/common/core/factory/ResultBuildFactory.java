@@ -12,6 +12,7 @@ import com.glacier.common.core.exception.SystemErrorType;
  * @version 1.0
  */
 public class ResultBuildFactory {
+    
     private ResultBuildFactory() {
     }
     

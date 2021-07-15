@@ -45,11 +45,6 @@ settings:
     permit-all:
       - /login/**
       - /logout
-      - /favicon.ico
-      - /static/**
-      - /webjars/**
       - /actuator/**
       - /v3/api-docs/**
-      - /swagger-ui/**
-      - /swagger-ui.html
       - /oauth/**
